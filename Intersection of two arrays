@@ -1,0 +1,42 @@
+import java.util.ArrayList;  
+import java.util.Arrays;  
+  
+// Define a class named IntersectionOfArrays  
+public class IntersectionOfArrays {  
+  
+// Define a static method named Intersection that takes two integer arrays as input and returns an ArrayList of integers  
+public static ArrayList<Integer> intersection(int[] arr1, int[] arr2) {  
+    // Initialize an ArrayList to hold the Intersection of the two arrays  
+    ArrayList<Integer> result = new ArrayList<>();  
+    // Initialize two pointers, i and j, to the start of the two arrays  
+    int i = 0, j = 0;  
+  
+    //Loop through both arrays simultaneously using the pointers i and j  
+    while (i < arr1.length && j < arr2.length) {  
+        // Compare the elements at indices i and j of the two arrays  
+        if (arr1[i] == arr2[j]) {  
+            // If they are equal, add the element to the result ArrayList, and increment both pointers i and j  
+            result.add(arr1[i]);  
+            i++;  
+            j++;  
+        } else if (arr1[i] < arr2[j]) {  
+            // If the element at index i of arr1 is less than the element at index j of arr2, increment i  
+            i++;  
+        } else {  
+            // If the element at index j of arr2 is less than the element at index i of arr1, increment j  
+            j++;  
+        }  
+    }  
+  
+    // Return the resulting ArrayList containing the Intersection of the two input arrays  
+    return result;  
+}  
+  
+// Define the main Method to test the intersection method  
+public static void main(String[] args) {  
+    int[] arr1 = {1, 2, 3, 4, 5};  
+    int[] arr2 = {3, 4, 5, 6, 7};  
+    ArrayList<Integer> intersection = intersection(arr1, arr2);  
+    System.out.println(intersection);  
+}  
+}  
